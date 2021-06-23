@@ -1,0 +1,56 @@
+<div class="col-md-2"> </div>
+<div class="col-md-8 well">
+  <h3 class="text-primary">Simple Shopping Cart Application Using AngularJs</h3>
+  <hr style="border-top:1px dotted #ccc;" />
+  <div id="bg-background" class="col-md-7">
+    <h4>PRODUCTS
+      <h4>
+        <hr style="border-top:1px groovy #ccc;">
+        <div id="product">
+          <div id="p_list" *ngFor="let product of products ">
+            <h5>{{product.p_name}}</h5>
+
+            <img [src]="product.p_image" />
+
+            <div>
+              <label>Price: Rs {{product.p_price}}</label>
+            </div>
+
+            <button type="button" (click)="add_cart(product)">
+              <span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
+
+          </div>
+        </div>
+        <div class="pull-right col-md-5">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h5>MY CART</h5>
+            </div>
+            <div class="panel-body table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cart of carts">
+                    <td>{{cart.p_name}}</td>
+                    <td>Rs {{cart.p_price}}</td>
+                    <td>
+                      <button type="button" (click)="remove_cart(cart)" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="right">Total</td>
+                    <td>Rs {{total}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
